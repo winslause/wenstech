@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wenstech | AI & Software Development</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --wens-blue: #00f2fe;
+            --wens-purple: #7928ca;
+            --wens-pink: #ff2d75;
+            --wens-dark: #0f0f1a;
+            --wens-light: #ffffff;
+            --wens-glass: rgba(255, 255, 255, 0.1);
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--wens-dark);
+            color: var(--wens-light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            color: var(--wens-light) !important;
+        }
+        
+        /* Brighter Sections */
+        .section-light {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: var(--wens-light);
+        }
+        
+        /* Glass Cards */
+        .card-glass {
+            background: var(--wens-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s;
+            color: var(--wens-light);
+        }
+        
+        .card-glass:hover {
+            border-color: var(--wens-blue);
+            transform: translateY(-5px);
+        }
+        
+        /* Gradient Buttons */
+        .btn-wens {
+            background: linear-gradient(45deg, var(--wens-blue), var(--wens-purple));
+            border: none;
+            color: white !important;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn-wens:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3);
+        }
+        
+        /* 3D Background */
+        #threejs-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        /* Voice Search */
+        #voice-search.listening {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 242, 254, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
+        }
+        
+        /* Service Icons */
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--wens-blue);
+            margin-bottom: 1rem;
+        }
+        
+        /* Project Tags */
+        .project-tag {
+            background: var(--wens-purple);
+            color: white;
+            font-size: 0.8rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D Background -->
+    <div id="threejs-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <h2><i class="fas fa-robot me-2" style="color: var(--wens-blue);"></i>WENSTECH</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <button id="voice-search" class="btn btn-wens ms-3">
+                    <i class="fas fa-microphone"></i> Voice AI
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-3 fw-bold mb-4">AI & SOFTWARE SOLUTIONS <span style="color: var(--wens-blue);">FOR BUSINESS</span></h1>
+                    <p class="lead mb-4">Wenstech delivers cutting-edge AI, machine learning, and enterprise software to transform your business.</p>
+                    <button class="btn btn-wens btn-lg me-3">Explore Services</button>
+                    <button class="btn btn-outline-light btn-lg" style="padding:5px; margin:5px;">Get a Demo</button>
+                </div>
+                <div class="col-lg-6" style="margin:5px;">
+                    <img src="https://diggrowth.com/wp-content/uploads/2024/02/AI-Data-Visualization-Tool_-Improve-Your-Insights-1.png" alt="AI for Business" class="img-fluid rounded-4 card-glass">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- AI Services Section -->
+    <section id="services" class="py-5 section-light">
+        <div class="container py-5">
+            <h2 class="text-center mb-5"><i class="fas fa-cogs me-2"></i> OUR AI SERVICES</h2>
+            <div class="row g-4">
+                <!-- AI Service 1 -->
+                <div class="col-md-4">
+                    <div class="card card-glass h-100">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4>Predictive Analytics</h4>
+                            <p>Forecast trends, customer behavior, and market shifts with our advanced ML models.</p>
+                            <button class="btn btn-wens btn-sm">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI Service 2 -->
+                <div class="col-md-4">
+                    <div class="card card-glass h-100">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h4>Computer Vision</h4>
+                            <p>Automate quality control, surveillance, and AR applications with AI vision.</p>
+                            <button class="btn btn-wens btn-sm">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI Service 3 -->
+                <div class="col-md-4">
+                    <div class="card card-glass h-100">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h4>Natural Language AI</h4>
+                            <p>Chatbots, sentiment analysis, and document processing powered by NLP.</p>
+                            <button class="btn btn-wens btn-sm">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI Service 4 -->
+                <div class="col-md-4">
+                    <div class="card card-glass h-100">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4>AI Optimization</h4>
+                            <p>Boost supply chain, logistics, and operations with reinforcement learning.</p>
+                            <button class="btn btn-wens btn-sm">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI Service 5 -->
+                <div class="col-md-4">
+                    <div class="card card-glass h-100">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-fingerprint"></i>
+                            </div>
+                            <h4>Fraud Detection</h4>
+                            <p>Real-time anomaly detection for finance, healthcare, and cybersecurity.</p>
+                            <button class="btn btn-wens btn-sm">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI Service 6 -->
+                <div class="col-md-4">
+                    <div class="card card-glass h-100">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-dna"></i>
+                            </div>
+                            <h4>Bioinformatics AI</h4>
+                            <p>Accelerate drug discovery and genomic analysis with deep learning.</p>
+                            <button class="btn btn-wens btn-sm">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Software Services Section -->
+    <section id="software" class="py-5">
+        <div class="container py-5">
+            <h2 class="text-center mb-5"><i class="fas fa-laptop-code me-2"></i> SOFTWARE DEVELOPMENT</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card card-glass h-100">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h4>Web Applications</h4>
+                            <p>Scalable, secure, and high-performance web apps with React, Angular, or Vue.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-glass h-100">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4>Mobile Apps</h4>
+                            <p>iOS and Android apps built with Flutter or native technologies.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-glass h-100">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h4>Cloud Solutions</h4>
+                            <p>AWS, Azure, and GCP architecture for enterprise scalability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 section-light">
+        <div class="container py-5">
+            <h2 class="text-center mb-5"><i class="fas fa-code-branch me-2"></i> OUR WORK</h2>
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-md-4">
+                    <div class="card card-glass h-100">
+                        <img src="https://scw-mag.com/wp-content/uploads/sites/7/2023/05/AI-supply-chain-tool.jpg" class="card-img-top" alt="Supply Chain AI">
+                        <div class="card-body">
+                            <h4>Supply Chain Optimizer</h4>
+                            <p>AI-powered logistics platform reducing costs by 30% for Fortune 500 companies.</p>
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-md-4">
+                    <div class="card card-glass h-100">
+                        <img src="https://imageio.forbes.com/blogs-images/bernardmarr/files/2018/07/AdobeStock_157266517-1200x640.jpeg?format=jpg&height=900&width=1600&fit=bounds" class="card-img-top" alt="Healthcare AI">
+                        <div class="card-body">
+                            <h4>Medical Diagnosis AI</h4>
+                            <p>Deep learning system detecting early-stage tumors with 95% accuracy.</p>
+                            <span class="project-tag">Computer Vision</span>
+                            <span class="project-tag">TensorFlow</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col-md-4">
+                    <div class="card card-glass h-100">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E12AQHPjdF6poOnFQ/article-cover_image-shrink_720_1280/B4EZVc5SxPGgAI-/0/1741020289062?e=2147483647&v=beta&t=Pp7trCuhYL6-wU2pPXLtq6x1QspC39Gy9SZB8A3my2Y" class="card-img-top" alt="Fintech App">
+                        <div class="card-body">
+                            <h4>Fraud Detection System</h4>
+                            <p>Real-time transaction monitoring reducing fraud losses by 60%.</p>
+                            <span class="project-tag">Anomaly Detection</span>
+                            <span class="project-tag">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="col-md-6">
+                    <div class="card card-glass h-100">
+                        <img src="https://miro.medium.com/v2/resize:fit:1001/0*-pJBTLtt6GJ0MEKj.png" class="card-img-top" alt="Chatbot">
+                        <div class="card-body">
+                            <h4>Enterprise Chatbot</h4>
+                            <p>NLP-driven assistant handling 10,000+ customer queries daily.</p>
+                            <span class="project-tag">Natural Language</span>
+                            <span class="project-tag">GPT-4</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="col-md-6">
+                    <div class="card card-glass h-100">
+                        <img src="https://iotbusinessnews.com/WordPress/wp-content/uploads/2023/07/Artificial-Intelligence-and-Internet-of-Things.jpg" class="card-img-top" alt="IoT Platform">
+                        <div class="card-body">
+                            <h4>Industrial IoT Platform</h4>
+                            <p>Predictive maintenance for manufacturing equipment.</p>
+                            <span class="project-tag">Time Series</span>
+                            <span class="project-tag">AWS IoT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container py-5">
+            <h2 class="text-center mb-5"><i class="fas fa-paper-plane me-2"></i> GET IN TOUCH</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card card-glass h-100">
+                        <div class="card-body">
+                            <h4>Contact Form</h4>
+                            <form id="contact-form">
+                                <div class="mb-3" style="color: white !important;">
+                                    <input type="text"  class="form-control bg-transparent text-white" placeholder="Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control bg-transparent text-white" placeholder="Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control bg-transparent text-white" rows="5" placeholder="Message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-wens">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card card-glass h-100">
+                        <div class="card-body">
+                            <h4>Our Offices</h4>
+                            <p><i class="fas fa-map-marker-alt me-2"></i> coming soon</p>
+                            <p><i class="fas fa-phone me-2"></i> +254 769525570</p>
+                            <p><i class="fas fa-envelope me-2"></i> contact@wenstech.ai</p>
+                            <hr>
+                            <h5>Follow Us</h5>
+                            <div class="d-flex">
+                                <a href="https://github.com/winslause" class="btn btn-outline-light me-2"><i class="fab fa-github"></i></a>
+                                <a href="https://x.com/wenslause5" class="btn btn-outline-light me-2"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="btn btn-outline-light me-2"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="btn btn-outline-light"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <p>&copy; 2023 <strong>Wenstech</strong>. All rights reserved.</p>
+            <p class="text-muted">Transforming businesses with AI and software.</p>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- GSAP (Animations) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    
+    <!-- Three.js (3D Background) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        $(document).ready(function() {
+            // ===== 3D BACKGROUND =====
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('threejs-bg').appendChild(renderer.domElement);
+            
+            // Floating nodes
+            const nodes = [];
+            for (let i = 0; i < 30; i++) {
+                const geometry = new THREE.SphereGeometry(0.1, 16, 16);
+                const material = new THREE.MeshBasicMaterial({ color: 0x00f2fe });
+                const sphere = new THREE.Mesh(geometry, material);
+                sphere.position.set(Math.random() * 10 - 5, Math.random() * 10 - 5, Math.random() * 10 - 5);
+                scene.add(sphere);
+                nodes.push(sphere);
+            }
+            
+            camera.position.z = 5;
+            
+            function animate() {
+                requestAnimationFrame(animate);
+                nodes.forEach(node => {
+                    node.position.x += (Math.random() - 0.5) * 0.01;
+                    node.position.y += (Math.random() - 0.5) * 0.01;
+                });
+                renderer.render(scene, camera);
+            }
+            animate();
+            
+            // ===== VOICE COMMANDS =====
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (SpeechRecognition) {
+                const recognition = new SpeechRecognition();
+                $('#voice-search').click(function() {
+                    recognition.start();
+                    $(this).addClass('listening').html('<i class="fas fa-microphone"></i> Listening...');
+                });
+                recognition.onresult = (event) => {
+                    const transcript = event.results[0][0].transcript.toLowerCase();
+                    $('#voice-search').removeClass('listening').html('<i class="fas fa-microphone"></i> Voice AI');
+                    if (transcript.includes('services')) window.location.href = '#services';
+                    else if (transcript.includes('projects')) window.location.href = '#projects';
+                    else if (transcript.includes('contact')) window.location.href = '#contact';
+                };
+            } else {
+                $('#voice-search').hide();
+            }
+            
+            // ===== GSAP ANIMATIONS =====
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from('#hero h1', { opacity: 0, y: 50, duration: 1 });
+            gsap.utils.toArray('.card-glass').forEach(card => {
+                gsap.from(card, {
+                    opacity: 0,
+                    y: 50,
+                    duration: 0.8,
+                    scrollTrigger: { trigger: card }
+                });
+            });
+            
+            // Form submission
+            $('#contact-form').submit(function(e) {
+                e.preventDefault();
+                alert('Thank you! Our AI team will contact you soon.');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
